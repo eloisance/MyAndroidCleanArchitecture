@@ -30,6 +30,8 @@ ext {
     okHttpVersion = '3.10.0'
     javaxAnnotationVersion = '1.0'
     javaxInjectVersion = '1'
+    daggerVersion = '2.11'
+    butterKnifeVersion = '8.8.1'
 
     // Testing
     jUnitVersion = '4.12'
@@ -59,7 +61,19 @@ ext {
 
     ]
 
+    // Module presentation
+    presentationDependencies = [
+            daggerAndroid:              "com.google.dagger:dagger-android:${daggerVersion}",
+            daggerAndroidSupport:       "com.google.dagger:dagger-android-support:${daggerVersion}",
+            daggerAndroidProcessor:     "com.google.dagger:dagger-android-processor:${daggerVersion}",
+            daggerCompiler:             "com.google.dagger:dagger-compiler:${daggerVersion}",
+            butterKnife:                "com.jakewharton:butterknife:${butterKnifeVersion}",
+            butterKnifeProcessor:       "com.jakewharton:butterknife-compiler:${butterKnifeVersion}",
+    ]
 
+    presentationTestDependencies = [
+
+    ]
 }
 
 task clean(type: Delete) {
