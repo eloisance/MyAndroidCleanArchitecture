@@ -34,18 +34,32 @@ ext {
     // Testing
     jUnitVersion = '4.12'
 
+    // module Data
     dataDependencies = [
-        okHttp:             "com.squareup.okhttp3:okhttp:${okHttpVersion}",
-        gson:               "com.google.code.gson:gson:${gsonVersion}",
-        rxJava:             "io.reactivex.rxjava2:rxjava:${rxJavaVersion}",
-        rxAndroid:          "io.reactivex.rxjava2:rxandroid:${rxAndroidVersion}",
-        javaxAnnotation:    "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
-        javaxInject:        "javax.inject:javax.inject:${javaxInjectVersion}",
+            okHttp:             "com.squareup.okhttp3:okhttp:${okHttpVersion}",
+            gson:               "com.google.code.gson:gson:${gsonVersion}",
+            rxJava:             "io.reactivex.rxjava2:rxjava:${rxJavaVersion}",
+            rxAndroid:          "io.reactivex.rxjava2:rxandroid:${rxAndroidVersion}",
+            javaxAnnotation:    "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
+            javaxInject:        "javax.inject:javax.inject:${javaxInjectVersion}",
     ]
 
     dataTestDependencies = [
-        junit: "junit:junit:${jUnitVersion}"
+            junit: "junit:junit:${jUnitVersion}"
     ]
+
+    // Module domain
+    domainDependencies = [
+            javaxAnnotation:    "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
+            javaxInject:        "javax.inject:javax.inject:${javaxInjectVersion}",
+            rxJava:             "io.reactivex.rxjava2:rxjava:${rxJavaVersion}"
+    ]
+
+    domainTestDependencies = [
+
+    ]
+
+
 }
 
 task clean(type: Delete) {
