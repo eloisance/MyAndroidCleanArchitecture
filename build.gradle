@@ -23,7 +23,11 @@ allprojects {
 }
 
 ext {
+    // Android
+
     // Libraries
+    androidSupportAppCompatV7 = '26.1.0'
+    androidSupportDesign = '26.1.0'
     rxJavaVersion = '2.1.10'
     rxAndroidVersion = '2.0.2'
     gsonVersion = '2.8.2'
@@ -63,6 +67,8 @@ ext {
 
     // Module presentation
     presentationDependencies = [
+            androidSupportAppCompatV7:  "com.android.support:appcompat-v7:${androidSupportAppCompatV7}",
+            androidSupportDesign:       "com.android.support:design:${androidSupportDesign}",
             daggerAndroid:              "com.google.dagger:dagger-android:${daggerVersion}",
             daggerAndroidSupport:       "com.google.dagger:dagger-android-support:${daggerVersion}",
             daggerAndroidProcessor:     "com.google.dagger:dagger-android-processor:${daggerVersion}",
