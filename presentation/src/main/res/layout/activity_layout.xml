@@ -6,6 +6,11 @@
     android:layout_height="match_parent"
     tools:context="project.eloisance.com.myandroidcleanarchitecture.view.activity.MainActivity">
 
+    <FrameLayout
+        android:id="@+id/fragmentContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"

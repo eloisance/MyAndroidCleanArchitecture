@@ -1,18 +1,22 @@
 package project.eloisance.com.myandroidcleanarchitecture.view.activity;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.util.Log;
-import android.view.MenuItem;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import project.eloisance.com.myandroidcleanarchitecture.R;
+import project.eloisance.com.myandroidcleanarchitecture.internal.di.HasComponent;
+import project.eloisance.com.myandroidcleanarchitecture.internal.di.components.DaggerUserComponent;
+import project.eloisance.com.myandroidcleanarchitecture.internal.di.components.UserComponent;
+import project.eloisance.com.myandroidcleanarchitecture.view.fragment.UserListFragment;
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseActivity implements HasComponent<UserComponent> {
 
     private static final String TAG = "MainActivity";
+
+    private UserComponent userComponent;
 
     @BindView(R.id.bottom_navigation)
     BottomNavigationView bottomNav;
@@ -20,8 +24,13 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_layout);
         ButterKnife.bind(this);
+
+        this.initializeInjector();
+        if (savedInstanceState == null) {
+            addFragment(R.id.fragmentContainer, new UserListFragment());
+        }
 
         bottomNav.setOnNavigationItemSelectedListener(item -> {
             switch (item.getItemId()) {
@@ -40,5 +49,17 @@ public class MainActivity extends BaseActivity {
             }
             return true;
         });
+    }
+
+    private void initializeInjector() {
+        this.userComponent = DaggerUserComponent.builder()
+                .applicationComponent(getApplicationComponent())
+                .activityModule(getActivityModule())
+                .build();
+    }
+
+    @Override
+    public UserComponent getComponent() {
+        return userComponent;
     }
 }

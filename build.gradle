@@ -75,6 +75,7 @@ ext {
             daggerCompiler:             "com.google.dagger:dagger-compiler:${daggerVersion}",
             butterKnife:                "com.jakewharton:butterknife:${butterKnifeVersion}",
             butterKnifeProcessor:       "com.jakewharton:butterknife-compiler:${butterKnifeVersion}",
+            javaxAnnotation:    "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
     ]
 
     presentationTestDependencies = [
