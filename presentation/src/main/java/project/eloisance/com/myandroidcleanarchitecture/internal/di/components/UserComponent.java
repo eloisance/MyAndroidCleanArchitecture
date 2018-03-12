@@ -4,6 +4,7 @@ import dagger.Component;
 import project.eloisance.com.myandroidcleanarchitecture.internal.di.PerActivity;
 import project.eloisance.com.myandroidcleanarchitecture.internal.di.modules.ActivityModule;
 import project.eloisance.com.myandroidcleanarchitecture.internal.di.modules.UserModule;
+import project.eloisance.com.myandroidcleanarchitecture.view.fragment.UserDetailsFragment;
 import project.eloisance.com.myandroidcleanarchitecture.view.fragment.UserListFragment;
 
 /**
@@ -14,5 +15,5 @@ import project.eloisance.com.myandroidcleanarchitecture.view.fragment.UserListFr
 @Component(dependencies = ApplicationComponent.class, modules = {ActivityModule.class, UserModule.class})
 public interface UserComponent extends ActivityComponent {
     void inject(UserListFragment userListFragment);
-    //void inject(UserDetailsFragment userDetailsFragment);
+    void inject(UserDetailsFragment userDetailsFragment);
 }

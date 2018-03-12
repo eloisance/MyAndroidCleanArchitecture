@@ -37,6 +37,7 @@ dependencies {
     compile dataDependencies.gson
     compile dataDependencies.rxJava
     compile dataDependencies.rxAndroid
+    compile dataDependencies.guava
 
     implementation 'com.android.support:appcompat-v7:26.1.0'
 

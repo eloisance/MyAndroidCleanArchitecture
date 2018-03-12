@@ -10,9 +10,10 @@ import project.eloisance.com.myandroidcleanarchitecture.R;
 import project.eloisance.com.myandroidcleanarchitecture.internal.di.HasComponent;
 import project.eloisance.com.myandroidcleanarchitecture.internal.di.components.DaggerUserComponent;
 import project.eloisance.com.myandroidcleanarchitecture.internal.di.components.UserComponent;
+import project.eloisance.com.myandroidcleanarchitecture.model.UserModel;
 import project.eloisance.com.myandroidcleanarchitecture.view.fragment.UserListFragment;
 
-public class MainActivity extends BaseActivity implements HasComponent<UserComponent> {
+public class MainActivity extends BaseActivity implements HasComponent<UserComponent>, UserListFragment.UserListListener {
 
     private static final String TAG = "MainActivity";
 
@@ -61,5 +62,10 @@ public class MainActivity extends BaseActivity implements HasComponent<UserCompo
     @Override
     public UserComponent getComponent() {
         return userComponent;
+    }
+
+    @Override
+    public void onUserClicked(UserModel userModel) {
+        this.navigator.navigateToUserDetails(this, userModel.getUserId());
     }
 }

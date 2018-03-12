@@ -36,6 +36,7 @@ ext {
     javaxInjectVersion = '1'
     daggerVersion = '2.11'
     butterKnifeVersion = '8.8.1'
+    guava = '24.0-android'
 
     // Testing
     jUnitVersion = '4.12'
@@ -48,6 +49,7 @@ ext {
             rxAndroid:          "io.reactivex.rxjava2:rxandroid:${rxAndroidVersion}",
             javaxAnnotation:    "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
             javaxInject:        "javax.inject:javax.inject:${javaxInjectVersion}",
+            guava:              "com.google.guava:guava:${guava}",
     ]
 
     dataTestDependencies = [
@@ -58,7 +60,8 @@ ext {
     domainDependencies = [
             javaxAnnotation:    "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
             javaxInject:        "javax.inject:javax.inject:${javaxInjectVersion}",
-            rxJava:             "io.reactivex.rxjava2:rxjava:${rxJavaVersion}"
+            rxJava:             "io.reactivex.rxjava2:rxjava:${rxJavaVersion}",
+            guava:              "com.google.guava:guava:${guava}",
     ]
 
     domainTestDependencies = [
@@ -75,7 +78,8 @@ ext {
             daggerCompiler:             "com.google.dagger:dagger-compiler:${daggerVersion}",
             butterKnife:                "com.jakewharton:butterknife:${butterKnifeVersion}",
             butterKnifeProcessor:       "com.jakewharton:butterknife-compiler:${butterKnifeVersion}",
-            javaxAnnotation:    "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
+            javaxAnnotation:            "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
+            guava:                      "com.google.guava:guava:${guava}",
     ]
 
     presentationTestDependencies = [

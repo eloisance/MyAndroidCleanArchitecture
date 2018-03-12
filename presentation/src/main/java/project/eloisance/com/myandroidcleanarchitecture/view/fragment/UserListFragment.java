@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,6 +31,8 @@ import project.eloisance.com.myandroidcleanarchitecture.view.adapter.UsersLayout
  * Fragment that shows a list of Users.
  */
 public class UserListFragment extends BaseFragment implements UserListView {
+
+    private static final String TAG = "UserListFragment";
 
     /**
      * Interface for listening user list events.
@@ -181,12 +184,10 @@ public class UserListFragment extends BaseFragment implements UserListView {
         UserListFragment.this.loadUserList();
     }
 
-    private UsersAdapter.OnItemClickListener onItemClickListener = new UsersAdapter.OnItemClickListener() {
-        @Override
-        public void onUserItemClicked(UserModel userModel) {
-            if (UserListFragment.this.userListPresenter != null && userModel != null) {
-                UserListFragment.this.userListPresenter.onUserClicked(userModel);
-            }
+    private UsersAdapter.OnItemClickListener onItemClickListener = userModel -> {
+        if (UserListFragment.this.userListPresenter != null && userModel != null) {
+            UserListFragment.this.userListPresenter.onUserClicked(userModel);
+            Log.d(TAG, "item clicked: " + userModel.getName());
         }
     };
 }

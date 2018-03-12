@@ -1,5 +1,7 @@
 package project.eloisance.com.domain.interactor;
 
+import com.google.common.base.Preconditions;
+
 import io.reactivex.Observable;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
@@ -41,7 +43,7 @@ public abstract class UseCase<T, Params> {
    * @param params Parameters (Optional) used to build/execute this use case.
    */
   public void execute(DisposableObserver<T> observer, Params params) {
-    // Preconditions.checkNotNull(observer);
+    Preconditions.checkNotNull(observer);
     final Observable<T> observable = this.buildUseCaseObservable(params)
         .subscribeOn(Schedulers.from(threadExecutor))
         .observeOn(postExecutionThread.getScheduler());
@@ -61,8 +63,8 @@ public abstract class UseCase<T, Params> {
    * Dispose from current {@link CompositeDisposable}.
    */
   private void addDisposable(Disposable disposable) {
-    //Preconditions.checkNotNull(disposable);
-    //Preconditions.checkNotNull(disposables);
+    Preconditions.checkNotNull(disposable);
+    Preconditions.checkNotNull(disposables);
     disposables.add(disposable);
   }
 }

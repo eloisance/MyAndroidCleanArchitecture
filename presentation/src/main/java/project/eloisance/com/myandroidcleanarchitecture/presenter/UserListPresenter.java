@@ -7,11 +7,10 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import io.reactivex.observers.DefaultObserver;
-import io.reactivex.observers.DisposableObserver;
 import project.eloisance.com.domain.User;
 import project.eloisance.com.domain.exception.DefaultErrorBundle;
 import project.eloisance.com.domain.exception.ErrorBundle;
+import project.eloisance.com.domain.interactor.DefaultObserver;
 import project.eloisance.com.domain.interactor.GetUserList;
 import project.eloisance.com.myandroidcleanarchitecture.exception.ErrorMessageFactory;
 import project.eloisance.com.myandroidcleanarchitecture.internal.di.PerActivity;
@@ -107,7 +106,7 @@ public class UserListPresenter implements Presenter {
         this.getUserListUseCase.execute(new UserListObserver(), null);
     }
 
-    private final class UserListObserver extends DisposableObserver<List<User>> {
+    private final class UserListObserver extends DefaultObserver<List<User>> {
 
         @Override
         public void onComplete() {

@@ -1,5 +1,9 @@
 apply plugin: 'java-library'
 
+configurations {
+    provided
+}
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
@@ -8,6 +12,8 @@ dependencies {
 
     compile domainDependencies.rxJava
     compile domainDependencies.javaxInject
+    compile domainDependencies.guava
+    provided domainDependencies.javaxAnnotation
 }
 
 sourceCompatibility = "1.7"
