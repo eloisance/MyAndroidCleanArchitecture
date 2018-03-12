@@ -33,6 +33,7 @@ public class UserDetailsFragment extends BaseFragment implements UserDetailsView
     UserDetailsPresenter userDetailsPresenter;
 
     @BindView(R.id.user_details_name) TextView txtName;
+    @BindView(R.id.user_details_email) TextView txtEmail;
     @BindView(R.id.rl_progress) RelativeLayout rl_progress;
     @BindView(R.id.rl_retry) RelativeLayout rl_retry;
     @BindView(R.id.bt_retry) Button bt_retry;
@@ -101,6 +102,7 @@ public class UserDetailsFragment extends BaseFragment implements UserDetailsView
     public void renderUser(UserModel user) {
         if (user != null) {
             this.txtName.setText(user.getName());
+            this.txtEmail.setText(user.getEmail());
         }
     }
 

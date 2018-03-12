@@ -30,8 +30,10 @@ public class UserModelDataMapper {
         if (user == null) {
             throw new IllegalArgumentException("Cannot transform a null value");
         }
+
         final UserModel userModel = new UserModel(user.getUserId());
         userModel.setName(user.getName());
+        userModel.setEmail(user.getEmail());
 
         return userModel;
     }

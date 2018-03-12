@@ -31,6 +31,7 @@ public class UserEntityDataMapper {
     if (userEntity != null) {
       user = new User(userEntity.getUserId());
       user.setName(userEntity.getName());
+      user.setEmail(userEntity.getEmail());
     }
     return user;
   }

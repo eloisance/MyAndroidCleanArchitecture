@@ -10,6 +10,9 @@ public class UserEntity {
     @SerializedName("name")
     private String name;
 
+    @SerializedName("email")
+    private String email;
+
     public UserEntity() { }
 
     public int getUserId() {
@@ -26,5 +29,13 @@ public class UserEntity {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

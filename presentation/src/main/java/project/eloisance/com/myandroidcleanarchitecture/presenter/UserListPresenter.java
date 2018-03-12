@@ -90,15 +90,14 @@ public class UserListPresenter implements Presenter {
 
     private void showErrorMessage(ErrorBundle errorBundle) {
         String errorMessage = ErrorMessageFactory.create(
-                this.viewListView.context(),
-                errorBundle.getException()
+            this.viewListView.context(),
+            errorBundle.getException()
         );
         this.viewListView.showError(errorMessage);
     }
 
     private void showUsersCollectionInView(Collection<User> usersCollection) {
-        final Collection<UserModel> userModelsCollection =
-                this.userModelDataMapper.transform(usersCollection);
+        final Collection<UserModel> userModelsCollection = this.userModelDataMapper.transform(usersCollection);
         this.viewListView.renderUserList(userModelsCollection);
     }
 
