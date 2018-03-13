@@ -16,27 +16,27 @@ import project.eloisance.com.data.net.RestApiImpl;
 @Singleton
 public class UserDataStoreFactory {
 
-  private final Context context;
+    private final Context context;
 
-  @Inject
-  UserDataStoreFactory(@NonNull Context context) {
-    this.context = context.getApplicationContext();
-  }
+    @Inject
+    UserDataStoreFactory(@NonNull Context context) {
+        this.context = context.getApplicationContext();
+    }
 
-  /**
-   * Create {@link UserDataStore} from a user id.
-   */
-  public UserDataStore create(int userId) {
-    return createCloudDataStore();
-  }
+    /**
+     * Create {@link UserDataStore} from a user id.
+     */
+    public UserDataStore create(int userId) {
+        return createCloudDataStore();
+    }
 
-  /**
-   * Create {@link UserDataStore} to retrieve data from the Cloud.
-   */
-  public UserDataStore createCloudDataStore() {
-    final UserEntityJsonMapper userEntityJsonMapper = new UserEntityJsonMapper();
-    final RestApi restApi = new RestApiImpl(this.context, userEntityJsonMapper);
+    /**
+     * Create {@link UserDataStore} to retrieve data from the Cloud.
+     */
+    public UserDataStore createCloudDataStore() {
+        final UserEntityJsonMapper userEntityJsonMapper = new UserEntityJsonMapper();
+        final RestApi restApi = new RestApiImpl(this.context, userEntityJsonMapper);
 
-    return new CloudUserDataStore(restApi);
-  }
+        return new CloudUserDataStore(restApi);
+    }
 }

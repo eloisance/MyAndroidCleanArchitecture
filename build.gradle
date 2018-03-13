@@ -37,9 +37,13 @@ ext {
     daggerVersion = '2.11'
     butterKnifeVersion = '8.8.1'
     guava = '24.0-android'
+    androidAnnotationsVersion = '21.0.3'
 
     // Testing
     jUnitVersion = '4.12'
+    assertJVersion = '3.9.1'
+    mockitoVersion = '1.9.5'
+    robolectricVersion = '3.7.1'
 
     // module Data
     dataDependencies = [
@@ -50,10 +54,14 @@ ext {
             javaxAnnotation:    "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
             javaxInject:        "javax.inject:javax.inject:${javaxInjectVersion}",
             guava:              "com.google.guava:guava:${guava}",
+            androidAnnotations: "com.android.support:support-annotations:${androidAnnotationsVersion}"
     ]
 
     dataTestDependencies = [
-            junit: "junit:junit:${jUnitVersion}"
+            junit:              "junit:junit:${jUnitVersion}",
+            assertj:            "org.assertj:assertj-core:${assertJVersion}",
+            mockito:            "org.mockito:mockito-core:${mockitoVersion}",
+            robolectric:        "org.robolectric:robolectric:${robolectricVersion}",
     ]
 
     // Module domain
